@@ -222,8 +222,12 @@
 
 .product-card__body {
   padding: 0.85rem;
-  display: grid;
-  gap: 0.35rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card__row {
+  margin-top: auto;
 }
 
 .product-card__meta {
@@ -416,6 +420,113 @@
   padding: 3rem 1rem;
   background: var(--white);
   border-radius: var(--radius);
+}
+
+/* Cart Wrapper - Two Column Layout */
+.cart-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.cart-table-column {
+  /* This column takes 2fr width */
+}
+
+.order-summary-column {
+  /* This column takes 1fr width */
+}
+
+/* Cart Actions */
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+/* Order Summary */
+.order-summary {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.order-summary h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+  font-size: 1.25rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--line);
+}
+
+/* Button Variants */
+.btn--danger {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.btn--danger:hover {
+  background: #c82333;
+  color: var(--white);
+}
+
+.btn--primary {
+  background: var(--green);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--green-dark);
+  color: var(--white);
+}
+
+.btn--block {
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+/* Cart Wrapper - Responsive */
+@media (max-width: 768px) {
+  .cart-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .cart-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cart-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 1100px) {
